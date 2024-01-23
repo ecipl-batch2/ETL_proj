@@ -1,0 +1,559 @@
+[0m11:32:45.856747 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025496106350>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025495E9F350>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000254965D2110>]}
+
+
+============================== 11:32:45.872363 | aca025e4-e3f0-43d0-ad14-2162a1f8c0ed ==============================
+[0m11:32:45.872363 [info ] [MainThread]: Running with dbt=1.7.4
+[0m11:32:45.872363 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\YuSh\\.dbt', 'fail_fast': 'False', 'version_check': 'True', 'log_path': 'E:\\GIT project\\de-batch-project\\dbt\\batch2_elt_project\\logs', 'debug': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'invocation_command': 'dbt debug', 'introspect': 'True', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m11:32:45.872363 [info ] [MainThread]: dbt version: 1.7.4
+[0m11:32:45.872363 [info ] [MainThread]: python version: 3.11.3
+[0m11:32:45.872363 [info ] [MainThread]: python path: C:\Users\YuSh\AppData\Local\Programs\Python\Python311\python.exe
+[0m11:32:45.872363 [info ] [MainThread]: os info: Windows-10-10.0.22621-SP0
+[0m11:32:46.475152 [info ] [MainThread]: Using profiles dir at C:\Users\YuSh\.dbt
+[0m11:32:46.476152 [info ] [MainThread]: Using profiles.yml file at C:\Users\YuSh\.dbt\profiles.yml
+[0m11:32:46.477132 [info ] [MainThread]: Using dbt_project.yml file at E:\GIT project\de-batch-project\dbt\batch2_elt_project\dbt_project.yml
+[0m11:32:46.479145 [info ] [MainThread]: adapter type: snowflake
+[0m11:32:46.480129 [info ] [MainThread]: adapter version: 1.7.0
+[0m11:32:46.541931 [info ] [MainThread]: Configuration:
+[0m11:32:46.546957 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m11:32:46.547970 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m11:32:46.548969 [info ] [MainThread]: Required dependencies:
+[0m11:32:46.550178 [debug] [MainThread]: Executing "git --help"
+[0m11:32:46.583876 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--config-env=<name>=<envvar>] <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m11:32:46.583876 [debug] [MainThread]: STDERR: "b''"
+[0m11:32:46.583876 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m11:32:46.583876 [info ] [MainThread]: Connection:
+[0m11:32:46.583876 [info ] [MainThread]:   account: fr53243.ap-southeast-1
+[0m11:32:46.588584 [info ] [MainThread]:   user: Elt_user
+[0m11:32:46.589600 [info ] [MainThread]:   database: dev
+[0m11:32:46.590597 [info ] [MainThread]:   warehouse: ELT_MEDIUM_WH
+[0m11:32:46.591595 [info ] [MainThread]:   role: dev_role
+[0m11:32:46.591805 [info ] [MainThread]:   schema: silver
+[0m11:32:46.591805 [info ] [MainThread]:   authenticator: None
+[0m11:32:46.591805 [info ] [MainThread]:   private_key_path: None
+[0m11:32:46.591805 [info ] [MainThread]:   token: None
+[0m11:32:46.591805 [info ] [MainThread]:   oauth_client_id: None
+[0m11:32:46.591805 [info ] [MainThread]:   query_tag: None
+[0m11:32:46.596863 [info ] [MainThread]:   client_session_keep_alive: False
+[0m11:32:46.597878 [info ] [MainThread]:   host: None
+[0m11:32:46.598871 [info ] [MainThread]:   port: None
+[0m11:32:46.598871 [info ] [MainThread]:   proxy_host: None
+[0m11:32:46.599870 [info ] [MainThread]:   proxy_port: None
+[0m11:32:46.600873 [info ] [MainThread]:   protocol: None
+[0m11:32:46.601873 [info ] [MainThread]:   connect_retries: 1
+[0m11:32:46.602400 [info ] [MainThread]:   connect_timeout: None
+[0m11:32:46.602400 [info ] [MainThread]:   retry_on_database_errors: False
+[0m11:32:46.605195 [info ] [MainThread]:   retry_all: False
+[0m11:32:46.605195 [info ] [MainThread]:   insecure_mode: False
+[0m11:32:46.606208 [info ] [MainThread]:   reuse_connections: None
+[0m11:32:46.607207 [info ] [MainThread]: Registered adapter: snowflake=1.7.0
+[0m11:32:46.608211 [debug] [MainThread]: Acquiring new snowflake connection 'debug'
+[0m11:32:46.609208 [debug] [MainThread]: Using snowflake connection "debug"
+[0m11:32:46.609208 [debug] [MainThread]: On debug: select 1 as id
+[0m11:32:46.610207 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m11:32:47.812931 [debug] [MainThread]: SQL status: SUCCESS 1 in 1.0 seconds
+[0m11:32:47.812931 [debug] [MainThread]: On debug: Close
+[0m11:32:48.014624 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m11:32:48.030275 [info ] [MainThread]: [32mAll checks passed![0m
+[0m11:32:48.030275 [debug] [MainThread]: Command `dbt debug` succeeded at 11:32:48.030275 after 2.21 seconds
+[0m11:32:48.030275 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m11:32:48.030275 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025495DF1690>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002548F00FA90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002548F00F990>]}
+[0m11:32:48.030275 [debug] [MainThread]: Flushing usage events
+[0m11:46:40.102492 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C94312EAD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C94319E8D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C94356C910>]}
+
+
+============================== 11:46:40.102492 | 9e18dcd2-9555-4657-923f-b7825dca6e0c ==============================
+[0m11:46:40.102492 [info ] [MainThread]: Running with dbt=1.7.4
+[0m11:46:40.102492 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'fail_fast': 'False', 'log_path': 'E:\\GIT project\\de-batch-project\\dbt\\batch2_elt_project\\logs', 'debug': 'False', 'profiles_dir': 'C:\\Users\\YuSh\\.dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'invocation_command': 'dbt run', 'log_format': 'default', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m11:46:41.083712 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '9e18dcd2-9555-4657-923f-b7825dca6e0c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C95C3A8AD0>]}
+[0m11:46:41.161851 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '9e18dcd2-9555-4657-923f-b7825dca6e0c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C9435DBD90>]}
+[0m11:46:41.161851 [info ] [MainThread]: Registered adapter: snowflake=1.7.0
+[0m11:46:41.177475 [debug] [MainThread]: checksum: 248e8aba381ba2d577dce7ab50d2010c2aac45d2b27e6e6214cdd96d2d41fabc, vars: {}, profile: , target: , version: 1.7.4
+[0m11:46:41.295076 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m11:46:41.295076 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m11:46:41.295076 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 2 unused configuration paths:
+- models.batch2_elt_project.dimension
+- models.batch2_elt_project.stagung
+[0m11:46:41.310663 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '9e18dcd2-9555-4657-923f-b7825dca6e0c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C95C3847D0>]}
+[0m11:46:41.326486 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '9e18dcd2-9555-4657-923f-b7825dca6e0c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C95C4D1F50>]}
+[0m11:46:41.326486 [info ] [MainThread]: Found 2 models, 1 source, 0 exposures, 0 metrics, 430 macros, 0 groups, 0 semantic models
+[0m11:46:41.326486 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '9e18dcd2-9555-4657-923f-b7825dca6e0c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C93E984E50>]}
+[0m11:46:41.326486 [info ] [MainThread]: 
+[0m11:46:41.326486 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m11:46:41.343421 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_dev'
+[0m11:46:41.358356 [debug] [ThreadPool]: Using snowflake connection "list_dev"
+[0m11:46:41.359341 [debug] [ThreadPool]: On list_dev: /* {"app": "dbt", "dbt_version": "1.7.4", "profile_name": "batch2_elt_project", "target_name": "dev", "connection_name": "list_dev"} */
+show terse schemas in database dev
+    limit 10000
+[0m11:46:41.360343 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:46:43.263134 [debug] [ThreadPool]: SQL status: SUCCESS 5 in 2.0 seconds
+[0m11:46:43.263134 [debug] [ThreadPool]: On list_dev: Close
+[0m11:46:43.460317 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_dev_silver'
+[0m11:46:43.475712 [debug] [ThreadPool]: Using snowflake connection "list_dev_silver"
+[0m11:46:43.475712 [debug] [ThreadPool]: On list_dev_silver: /* {"app": "dbt", "dbt_version": "1.7.4", "profile_name": "batch2_elt_project", "target_name": "dev", "connection_name": "list_dev_silver"} */
+show terse objects in dev.silver limit 10000
+[0m11:46:43.491584 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:46:44.306859 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 1.0 seconds
+[0m11:46:44.306859 [debug] [ThreadPool]: On list_dev_silver: Close
+[0m11:46:44.541239 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '9e18dcd2-9555-4657-923f-b7825dca6e0c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C95C3A8050>]}
+[0m11:46:44.541239 [info ] [MainThread]: Concurrency: 3 threads (target='dev')
+[0m11:46:44.541239 [info ] [MainThread]: 
+[0m11:46:44.556584 [debug] [Thread-1 (]: Began running node model.batch2_elt_project.stg_products
+[0m11:46:44.556584 [info ] [Thread-1 (]: 1 of 2 START sql view model silver.stg_products ................................ [RUN]
+[0m11:46:44.556584 [debug] [Thread-1 (]: Acquiring new snowflake connection 'model.batch2_elt_project.stg_products'
+[0m11:46:44.556584 [debug] [Thread-1 (]: Began compiling node model.batch2_elt_project.stg_products
+[0m11:46:44.556584 [debug] [Thread-1 (]: Writing injected SQL for node "model.batch2_elt_project.stg_products"
+[0m11:46:44.556584 [debug] [Thread-1 (]: Timing info for model.batch2_elt_project.stg_products (compile): 11:46:44.556584 => 11:46:44.556584
+[0m11:46:44.556584 [debug] [Thread-1 (]: Began executing node model.batch2_elt_project.stg_products
+[0m11:46:44.593898 [debug] [Thread-1 (]: Writing runtime sql for node "model.batch2_elt_project.stg_products"
+[0m11:46:44.598874 [debug] [Thread-1 (]: Using snowflake connection "model.batch2_elt_project.stg_products"
+[0m11:46:44.599599 [debug] [Thread-1 (]: On model.batch2_elt_project.stg_products: /* {"app": "dbt", "dbt_version": "1.7.4", "profile_name": "batch2_elt_project", "target_name": "dev", "node_id": "model.batch2_elt_project.stg_products"} */
+create or replace   view dev.silver.stg_products
+  
+   as (
+    select  product_id ,
+ product_category_name,
+ product_name_length,
+ cast(product_description_length as int)as product_description_length,
+ cast(product_photos_qty as int)as product_photos_qty,
+ cast(product_weight_g as int)as product_weight_g,
+ cast(product_length_cm as int)as product_length_cm,
+ cast(product_height_cm as int)as product_height_cm,
+ cast(product_width_cm as int)as product_width_cm,
+ INSERTED_AT as inserted_at
+ from
+  DEV.BRONZE.products
+  );
+[0m11:46:44.599599 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m11:46:45.599132 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 1.0 seconds
+[0m11:46:45.630131 [debug] [Thread-1 (]: Timing info for model.batch2_elt_project.stg_products (execute): 11:46:44.556584 => 11:46:45.630131
+[0m11:46:45.630131 [debug] [Thread-1 (]: On model.batch2_elt_project.stg_products: Close
+[0m11:46:45.828249 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '9e18dcd2-9555-4657-923f-b7825dca6e0c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C95C52A290>]}
+[0m11:46:45.843623 [info ] [Thread-1 (]: 1 of 2 OK created sql view model silver.stg_products ........................... [[32mSUCCESS 1[0m in 1.27s]
+[0m11:46:45.843623 [debug] [Thread-1 (]: Finished running node model.batch2_elt_project.stg_products
+[0m11:46:45.843623 [debug] [Thread-3 (]: Began running node model.batch2_elt_project.fact_products
+[0m11:46:45.843623 [info ] [Thread-3 (]: 2 of 2 START sql view model silver.fact_products ............................... [RUN]
+[0m11:46:45.843623 [debug] [Thread-3 (]: Acquiring new snowflake connection 'model.batch2_elt_project.fact_products'
+[0m11:46:45.843623 [debug] [Thread-3 (]: Began compiling node model.batch2_elt_project.fact_products
+[0m11:46:45.843623 [debug] [Thread-3 (]: Writing injected SQL for node "model.batch2_elt_project.fact_products"
+[0m11:46:45.843623 [debug] [Thread-3 (]: Timing info for model.batch2_elt_project.fact_products (compile): 11:46:45.843623 => 11:46:45.843623
+[0m11:46:45.843623 [debug] [Thread-3 (]: Began executing node model.batch2_elt_project.fact_products
+[0m11:46:45.843623 [debug] [Thread-3 (]: Writing runtime sql for node "model.batch2_elt_project.fact_products"
+[0m11:46:45.859219 [debug] [Thread-3 (]: Using snowflake connection "model.batch2_elt_project.fact_products"
+[0m11:46:45.859219 [debug] [Thread-3 (]: On model.batch2_elt_project.fact_products: /* {"app": "dbt", "dbt_version": "1.7.4", "profile_name": "batch2_elt_project", "target_name": "dev", "node_id": "model.batch2_elt_project.fact_products"} */
+create or replace   view dev.silver.fact_products
+  
+   as (
+    with stg_product_data as
+(
+    select * from dev.silver.stg_products
+)
+
+select  
+ REPLACE(product_id,'"', '') AS product_id ,
+ IFNULL(product_category_name, 'NO NAME ASSIGNED') as product_category_name,
+ IFNULL(product_name_length, 0) as product_name_length,
+ IFNULL(product_description_length, 0)as product_description_length,
+ IFNULL(product_photos_qty, 0) as product_photos_qty,
+ IFNULL(product_weight_g, 0) as product_weight_g ,
+ IFNULL(product_length_cm, 0) as product_length_cm,
+ IFNULL(product_height_cm, 0) as product_height_cm,
+ IFNULL(product_width_cm, 0) as product_width_cm,
+ INSERTED_AT as inserted_at
+ 
+from stg_product_data
+  );
+[0m11:46:45.859219 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m11:46:46.869407 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 1.0 seconds
+[0m11:46:46.869407 [debug] [Thread-3 (]: Timing info for model.batch2_elt_project.fact_products (execute): 11:46:45.843623 => 11:46:46.869407
+[0m11:46:46.869407 [debug] [Thread-3 (]: On model.batch2_elt_project.fact_products: Close
+[0m11:46:47.260647 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '9e18dcd2-9555-4657-923f-b7825dca6e0c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C95C6114D0>]}
+[0m11:46:47.260647 [info ] [Thread-3 (]: 2 of 2 OK created sql view model silver.fact_products .......................... [[32mSUCCESS 1[0m in 1.42s]
+[0m11:46:47.260647 [debug] [Thread-3 (]: Finished running node model.batch2_elt_project.fact_products
+[0m11:46:47.260647 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m11:46:47.260647 [debug] [MainThread]: Connection 'list_dev' was properly closed.
+[0m11:46:47.260647 [debug] [MainThread]: Connection 'list_dev_silver' was properly closed.
+[0m11:46:47.260647 [debug] [MainThread]: Connection 'model.batch2_elt_project.stg_products' was properly closed.
+[0m11:46:47.260647 [debug] [MainThread]: Connection 'model.batch2_elt_project.fact_products' was properly closed.
+[0m11:46:47.260647 [info ] [MainThread]: 
+[0m11:46:47.260647 [info ] [MainThread]: Finished running 2 view models in 0 hours 0 minutes and 5.93 seconds (5.93s).
+[0m11:46:47.260647 [debug] [MainThread]: Command end result
+[0m11:46:47.276015 [info ] [MainThread]: 
+[0m11:46:47.276015 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m11:46:47.276015 [info ] [MainThread]: 
+[0m11:46:47.276015 [info ] [MainThread]: Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
+[0m11:46:47.286955 [debug] [MainThread]: Command `dbt run` succeeded at 11:46:47.285941 after 7.22 seconds
+[0m11:46:47.287957 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C942DFA850>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C942E7A990>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C9435C3110>]}
+[0m11:46:47.287957 [debug] [MainThread]: Flushing usage events
+[0m12:00:33.599690 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022D87232890>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022D86A39450>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022D86D23190>]}
+
+
+============================== 12:00:33.599690 | 45054f50-919d-47d9-b864-6e3546b20e2c ==============================
+[0m12:00:33.599690 [info ] [MainThread]: Running with dbt=1.7.4
+[0m12:00:33.599690 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'version_check': 'True', 'log_path': 'E:\\GIT project\\de-batch-project\\dbt\\batch2_elt_project\\logs', 'debug': 'False', 'profiles_dir': 'C:\\Users\\YuSh\\.dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt test --select stg_products', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m12:00:35.510104 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '45054f50-919d-47d9-b864-6e3546b20e2c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022D9FF5ABD0>]}
+[0m12:00:35.588230 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '45054f50-919d-47d9-b864-6e3546b20e2c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022D9FF37890>]}
+[0m12:00:35.588230 [info ] [MainThread]: Registered adapter: snowflake=1.7.0
+[0m12:00:35.605682 [debug] [MainThread]: checksum: 248e8aba381ba2d577dce7ab50d2010c2aac45d2b27e6e6214cdd96d2d41fabc, vars: {}, profile: , target: , version: 1.7.4
+[0m12:00:35.723698 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m12:00:35.723698 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m12:00:35.723698 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 2 unused configuration paths:
+- models.batch2_elt_project.dimension
+- models.batch2_elt_project.stagung
+[0m12:00:35.739324 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '45054f50-919d-47d9-b864-6e3546b20e2c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022DA0233AD0>]}
+[0m12:00:35.759419 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '45054f50-919d-47d9-b864-6e3546b20e2c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022DA01767D0>]}
+[0m12:00:35.760733 [info ] [MainThread]: Found 2 models, 2 tests, 1 source, 0 exposures, 0 metrics, 430 macros, 0 groups, 0 semantic models
+[0m12:00:35.760733 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '45054f50-919d-47d9-b864-6e3546b20e2c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022D9FFAB710>]}
+[0m12:00:35.760733 [info ] [MainThread]: 
+[0m12:00:35.760733 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m12:00:35.767589 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_dev_silver'
+[0m12:00:35.777517 [debug] [ThreadPool]: Using snowflake connection "list_dev_silver"
+[0m12:00:35.777517 [debug] [ThreadPool]: On list_dev_silver: /* {"app": "dbt", "dbt_version": "1.7.4", "profile_name": "batch2_elt_project", "target_name": "dev", "connection_name": "list_dev_silver"} */
+show terse objects in dev.silver limit 10000
+[0m12:00:35.784469 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m12:00:36.828287 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 1.0 seconds
+[0m12:00:36.828287 [debug] [ThreadPool]: On list_dev_silver: Close
+[0m12:00:37.047036 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '45054f50-919d-47d9-b864-6e3546b20e2c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022D9FF7D810>]}
+[0m12:00:37.047036 [info ] [MainThread]: Concurrency: 3 threads (target='dev')
+[0m12:00:37.062393 [info ] [MainThread]: 
+[0m12:00:37.062393 [debug] [Thread-1 (]: Began running node test.batch2_elt_project.not_null_stg_products_product_id.6373b0acf3
+[0m12:00:37.062393 [debug] [Thread-2 (]: Began running node test.batch2_elt_project.unique_stg_products_product_id.7d950a1467
+[0m12:00:37.062393 [info ] [Thread-1 (]: 1 of 2 START test not_null_stg_products_product_id ............................. [RUN]
+[0m12:00:37.062393 [info ] [Thread-2 (]: 2 of 2 START test unique_stg_products_product_id ............................... [RUN]
+[0m12:00:37.073019 [debug] [Thread-1 (]: Acquiring new snowflake connection 'test.batch2_elt_project.not_null_stg_products_product_id.6373b0acf3'
+[0m12:00:37.074019 [debug] [Thread-2 (]: Acquiring new snowflake connection 'test.batch2_elt_project.unique_stg_products_product_id.7d950a1467'
+[0m12:00:37.075016 [debug] [Thread-1 (]: Began compiling node test.batch2_elt_project.not_null_stg_products_product_id.6373b0acf3
+[0m12:00:37.076022 [debug] [Thread-2 (]: Began compiling node test.batch2_elt_project.unique_stg_products_product_id.7d950a1467
+[0m12:00:37.093388 [debug] [Thread-1 (]: Writing injected SQL for node "test.batch2_elt_project.not_null_stg_products_product_id.6373b0acf3"
+[0m12:00:37.101957 [debug] [Thread-2 (]: Writing injected SQL for node "test.batch2_elt_project.unique_stg_products_product_id.7d950a1467"
+[0m12:00:37.101957 [debug] [Thread-2 (]: Timing info for test.batch2_elt_project.unique_stg_products_product_id.7d950a1467 (compile): 12:00:37.093388 => 12:00:37.101957
+[0m12:00:37.109249 [debug] [Thread-1 (]: Timing info for test.batch2_elt_project.not_null_stg_products_product_id.6373b0acf3 (compile): 12:00:37.076970 => 12:00:37.109249
+[0m12:00:37.110260 [debug] [Thread-2 (]: Began executing node test.batch2_elt_project.unique_stg_products_product_id.7d950a1467
+[0m12:00:37.110260 [debug] [Thread-1 (]: Began executing node test.batch2_elt_project.not_null_stg_products_product_id.6373b0acf3
+[0m12:00:37.135355 [debug] [Thread-2 (]: Writing runtime sql for node "test.batch2_elt_project.unique_stg_products_product_id.7d950a1467"
+[0m12:00:37.138354 [debug] [Thread-1 (]: Writing runtime sql for node "test.batch2_elt_project.not_null_stg_products_product_id.6373b0acf3"
+[0m12:00:37.140353 [debug] [Thread-2 (]: Using snowflake connection "test.batch2_elt_project.unique_stg_products_product_id.7d950a1467"
+[0m12:00:37.141355 [debug] [Thread-1 (]: Using snowflake connection "test.batch2_elt_project.not_null_stg_products_product_id.6373b0acf3"
+[0m12:00:37.142354 [debug] [Thread-2 (]: On test.batch2_elt_project.unique_stg_products_product_id.7d950a1467: /* {"app": "dbt", "dbt_version": "1.7.4", "profile_name": "batch2_elt_project", "target_name": "dev", "node_id": "test.batch2_elt_project.unique_stg_products_product_id.7d950a1467"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    product_id as unique_field,
+    count(*) as n_records
+
+from dev.silver.stg_products
+where product_id is not null
+group by product_id
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+[0m12:00:37.143354 [debug] [Thread-1 (]: On test.batch2_elt_project.not_null_stg_products_product_id.6373b0acf3: /* {"app": "dbt", "dbt_version": "1.7.4", "profile_name": "batch2_elt_project", "target_name": "dev", "node_id": "test.batch2_elt_project.not_null_stg_products_product_id.6373b0acf3"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select product_id
+from dev.silver.stg_products
+where product_id is null
+
+
+
+      
+    ) dbt_internal_test
+[0m12:00:37.144356 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m12:00:37.144356 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m12:00:39.806309 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 3.0 seconds
+[0m12:00:39.821692 [debug] [Thread-2 (]: Timing info for test.batch2_elt_project.unique_stg_products_product_id.7d950a1467 (execute): 12:00:37.110260 => 12:00:39.806309
+[0m12:00:39.821692 [debug] [Thread-2 (]: On test.batch2_elt_project.unique_stg_products_product_id.7d950a1467: Close
+[0m12:00:40.010689 [error] [Thread-2 (]: 2 of 2 FAIL 951 unique_stg_products_product_id ................................. [[31mFAIL 951[0m in 2.94s]
+[0m12:00:40.010689 [debug] [Thread-2 (]: Finished running node test.batch2_elt_project.unique_stg_products_product_id.7d950a1467
+[0m12:00:40.671322 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 4.0 seconds
+[0m12:00:40.686665 [debug] [Thread-1 (]: Timing info for test.batch2_elt_project.not_null_stg_products_product_id.6373b0acf3 (execute): 12:00:37.135355 => 12:00:40.686665
+[0m12:00:40.686665 [debug] [Thread-1 (]: On test.batch2_elt_project.not_null_stg_products_product_id.6373b0acf3: Close
+[0m12:00:40.936629 [info ] [Thread-1 (]: 1 of 2 PASS not_null_stg_products_product_id ................................... [[32mPASS[0m in 3.86s]
+[0m12:00:40.952939 [debug] [Thread-1 (]: Finished running node test.batch2_elt_project.not_null_stg_products_product_id.6373b0acf3
+[0m12:00:40.953685 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m12:00:40.953685 [debug] [MainThread]: Connection 'list_dev_silver' was properly closed.
+[0m12:00:40.953685 [debug] [MainThread]: Connection 'test.batch2_elt_project.not_null_stg_products_product_id.6373b0acf3' was properly closed.
+[0m12:00:40.953685 [debug] [MainThread]: Connection 'test.batch2_elt_project.unique_stg_products_product_id.7d950a1467' was properly closed.
+[0m12:00:40.953685 [info ] [MainThread]: 
+[0m12:00:40.953685 [info ] [MainThread]: Finished running 2 tests in 0 hours 0 minutes and 5.19 seconds (5.19s).
+[0m12:00:40.953685 [debug] [MainThread]: Command end result
+[0m12:00:40.967580 [info ] [MainThread]: 
+[0m12:00:40.968596 [info ] [MainThread]: [31mCompleted with 1 error and 0 warnings:[0m
+[0m12:00:40.969602 [info ] [MainThread]: 
+[0m12:00:40.969602 [error] [MainThread]: [31mFailure in test unique_stg_products_product_id (models\staging\stage_schema.yml)[0m
+[0m12:00:40.969602 [error] [MainThread]:   Got 951 results, configured to fail if != 0
+[0m12:00:40.969602 [info ] [MainThread]: 
+[0m12:00:40.969602 [info ] [MainThread]:   compiled Code at target\compiled\batch2_elt_project\models\staging\stage_schema.yml\unique_stg_products_product_id.sql
+[0m12:00:40.969602 [info ] [MainThread]: 
+[0m12:00:40.969602 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=1 SKIP=0 TOTAL=2
+[0m12:00:40.976048 [debug] [MainThread]: Command `dbt test` failed at 12:00:40.976048 after 7.42 seconds
+[0m12:00:40.977075 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022D87247A10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022DFFC3FB50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022DFFC3FB10>]}
+[0m12:00:40.977075 [debug] [MainThread]: Flushing usage events
+[0m12:37:35.872608 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025C260C5E90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025C25FE3F50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025C265B65D0>]}
+
+
+============================== 12:37:35.884848 | 4a81dd0d-071e-4129-9413-acf6a120245a ==============================
+[0m12:37:35.884848 [info ] [MainThread]: Running with dbt=1.7.4
+[0m12:37:35.900519 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\YuSh\\.dbt', 'fail_fast': 'False', 'debug': 'False', 'log_path': 'E:\\GIT project\\de-batch-project\\dbt\\batch2_elt_project\\logs', 'version_check': 'True', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt test --select stg_products', 'static_parser': 'True', 'introspect': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m12:37:36.817122 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '4a81dd0d-071e-4129-9413-acf6a120245a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025C3DD9B4D0>]}
+[0m12:37:36.880039 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '4a81dd0d-071e-4129-9413-acf6a120245a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025C3DC83CD0>]}
+[0m12:37:36.895678 [info ] [MainThread]: Registered adapter: snowflake=1.7.0
+[0m12:37:36.895678 [debug] [MainThread]: checksum: 248e8aba381ba2d577dce7ab50d2010c2aac45d2b27e6e6214cdd96d2d41fabc, vars: {}, profile: , target: , version: 1.7.4
+[0m12:37:37.018347 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m12:37:37.018347 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m12:37:37.018347 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 2 unused configuration paths:
+- models.batch2_elt_project.stagung
+- models.batch2_elt_project.dimension
+[0m12:37:37.033926 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '4a81dd0d-071e-4129-9413-acf6a120245a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025C3F311AD0>]}
+[0m12:37:37.162983 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '4a81dd0d-071e-4129-9413-acf6a120245a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025C3F52E390>]}
+[0m12:37:37.162983 [info ] [MainThread]: Found 2 models, 2 tests, 1 source, 0 exposures, 0 metrics, 430 macros, 0 groups, 0 semantic models
+[0m12:37:37.162983 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '4a81dd0d-071e-4129-9413-acf6a120245a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025C219B5010>]}
+[0m12:37:37.162983 [info ] [MainThread]: 
+[0m12:37:37.162983 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m12:37:37.162983 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_dev_silver'
+[0m12:37:37.181431 [debug] [ThreadPool]: Using snowflake connection "list_dev_silver"
+[0m12:37:37.181431 [debug] [ThreadPool]: On list_dev_silver: /* {"app": "dbt", "dbt_version": "1.7.4", "profile_name": "batch2_elt_project", "target_name": "dev", "connection_name": "list_dev_silver"} */
+show terse objects in dev.silver limit 10000
+[0m12:37:37.181431 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m12:37:38.229624 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 1.0 seconds
+[0m12:37:38.229624 [debug] [ThreadPool]: On list_dev_silver: Close
+[0m12:37:38.449466 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '4a81dd0d-071e-4129-9413-acf6a120245a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025C3F515C90>]}
+[0m12:37:38.449466 [info ] [MainThread]: Concurrency: 3 threads (target='dev')
+[0m12:37:38.449466 [info ] [MainThread]: 
+[0m12:37:38.449466 [debug] [Thread-1 (]: Began running node test.batch2_elt_project.not_null_stg_products_product_id.6373b0acf3
+[0m12:37:38.449466 [debug] [Thread-2 (]: Began running node test.batch2_elt_project.unique_stg_products_product_id.7d950a1467
+[0m12:37:38.449466 [info ] [Thread-1 (]: 1 of 2 START test not_null_stg_products_product_id ............................. [RUN]
+[0m12:37:38.449466 [info ] [Thread-2 (]: 2 of 2 START test unique_stg_products_product_id ............................... [RUN]
+[0m12:37:38.462419 [debug] [Thread-1 (]: Acquiring new snowflake connection 'test.batch2_elt_project.not_null_stg_products_product_id.6373b0acf3'
+[0m12:37:38.462419 [debug] [Thread-2 (]: Acquiring new snowflake connection 'test.batch2_elt_project.unique_stg_products_product_id.7d950a1467'
+[0m12:37:38.462419 [debug] [Thread-1 (]: Began compiling node test.batch2_elt_project.not_null_stg_products_product_id.6373b0acf3
+[0m12:37:38.462419 [debug] [Thread-2 (]: Began compiling node test.batch2_elt_project.unique_stg_products_product_id.7d950a1467
+[0m12:37:38.480709 [debug] [Thread-1 (]: Writing injected SQL for node "test.batch2_elt_project.not_null_stg_products_product_id.6373b0acf3"
+[0m12:37:38.488569 [debug] [Thread-2 (]: Writing injected SQL for node "test.batch2_elt_project.unique_stg_products_product_id.7d950a1467"
+[0m12:37:38.488569 [debug] [Thread-1 (]: Timing info for test.batch2_elt_project.not_null_stg_products_product_id.6373b0acf3 (compile): 12:37:38.462419 => 12:37:38.488569
+[0m12:37:38.488569 [debug] [Thread-1 (]: Began executing node test.batch2_elt_project.not_null_stg_products_product_id.6373b0acf3
+[0m12:37:38.488569 [debug] [Thread-2 (]: Timing info for test.batch2_elt_project.unique_stg_products_product_id.7d950a1467 (compile): 12:37:38.480709 => 12:37:38.488569
+[0m12:37:38.511960 [debug] [Thread-1 (]: Writing runtime sql for node "test.batch2_elt_project.not_null_stg_products_product_id.6373b0acf3"
+[0m12:37:38.513009 [debug] [Thread-2 (]: Began executing node test.batch2_elt_project.unique_stg_products_product_id.7d950a1467
+[0m12:37:38.516004 [debug] [Thread-2 (]: Writing runtime sql for node "test.batch2_elt_project.unique_stg_products_product_id.7d950a1467"
+[0m12:37:38.517999 [debug] [Thread-1 (]: Using snowflake connection "test.batch2_elt_project.not_null_stg_products_product_id.6373b0acf3"
+[0m12:37:38.517999 [debug] [Thread-1 (]: On test.batch2_elt_project.not_null_stg_products_product_id.6373b0acf3: /* {"app": "dbt", "dbt_version": "1.7.4", "profile_name": "batch2_elt_project", "target_name": "dev", "node_id": "test.batch2_elt_project.not_null_stg_products_product_id.6373b0acf3"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select product_id
+from dev.silver.stg_products
+where product_id is null
+
+
+
+      
+    ) dbt_internal_test
+[0m12:37:38.518999 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m12:37:38.519986 [debug] [Thread-2 (]: Using snowflake connection "test.batch2_elt_project.unique_stg_products_product_id.7d950a1467"
+[0m12:37:38.521986 [debug] [Thread-2 (]: On test.batch2_elt_project.unique_stg_products_product_id.7d950a1467: /* {"app": "dbt", "dbt_version": "1.7.4", "profile_name": "batch2_elt_project", "target_name": "dev", "node_id": "test.batch2_elt_project.unique_stg_products_product_id.7d950a1467"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    product_id as unique_field,
+    count(*) as n_records
+
+from dev.silver.stg_products
+where product_id is not null
+group by product_id
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+[0m12:37:38.522980 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m12:37:39.483812 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 1.0 seconds
+[0m12:37:39.498859 [debug] [Thread-1 (]: Timing info for test.batch2_elt_project.not_null_stg_products_product_id.6373b0acf3 (execute): 12:37:38.488569 => 12:37:39.498859
+[0m12:37:39.498859 [debug] [Thread-1 (]: On test.batch2_elt_project.not_null_stg_products_product_id.6373b0acf3: Close
+[0m12:37:39.671708 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 1.0 seconds
+[0m12:37:39.671708 [debug] [Thread-2 (]: Timing info for test.batch2_elt_project.unique_stg_products_product_id.7d950a1467 (execute): 12:37:38.513987 => 12:37:39.671708
+[0m12:37:39.671708 [debug] [Thread-2 (]: On test.batch2_elt_project.unique_stg_products_product_id.7d950a1467: Close
+[0m12:37:39.687998 [info ] [Thread-1 (]: 1 of 2 PASS not_null_stg_products_product_id ................................... [[32mPASS[0m in 1.23s]
+[0m12:37:39.687998 [debug] [Thread-1 (]: Finished running node test.batch2_elt_project.not_null_stg_products_product_id.6373b0acf3
+[0m12:37:39.884779 [info ] [Thread-2 (]: 2 of 2 PASS unique_stg_products_product_id ..................................... [[32mPASS[0m in 1.42s]
+[0m12:37:39.884779 [debug] [Thread-2 (]: Finished running node test.batch2_elt_project.unique_stg_products_product_id.7d950a1467
+[0m12:37:39.891292 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m12:37:39.891292 [debug] [MainThread]: Connection 'list_dev_silver' was properly closed.
+[0m12:37:39.891292 [debug] [MainThread]: Connection 'test.batch2_elt_project.not_null_stg_products_product_id.6373b0acf3' was properly closed.
+[0m12:37:39.891292 [debug] [MainThread]: Connection 'test.batch2_elt_project.unique_stg_products_product_id.7d950a1467' was properly closed.
+[0m12:37:39.891292 [info ] [MainThread]: 
+[0m12:37:39.891292 [info ] [MainThread]: Finished running 2 tests in 0 hours 0 minutes and 2.73 seconds (2.73s).
+[0m12:37:39.897684 [debug] [MainThread]: Command end result
+[0m12:37:39.905974 [info ] [MainThread]: 
+[0m12:37:39.905974 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m12:37:39.905974 [info ] [MainThread]: 
+[0m12:37:39.905974 [info ] [MainThread]: Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
+[0m12:37:39.905974 [debug] [MainThread]: Command `dbt test` succeeded at 12:37:39.905974 after 4.17 seconds
+[0m12:37:39.905974 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025C260C4090>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025C264BC050>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025C261BE9D0>]}
+[0m12:37:39.905974 [debug] [MainThread]: Flushing usage events
+[0m13:07:58.994595 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B253EF22D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B253F8A190>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B253EBEE90>]}
+
+
+============================== 13:07:59.010028 | 2c742a70-28b3-4a84-bd77-38eed29b19a6 ==============================
+[0m13:07:59.010028 [info ] [MainThread]: Running with dbt=1.7.4
+[0m13:07:59.012047 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\YuSh\\.dbt', 'version_check': 'True', 'fail_fast': 'False', 'log_path': 'E:\\GIT project\\de-batch-project\\dbt\\batch2_elt_project\\logs', 'debug': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'log_format': 'default', 'invocation_command': 'dbt run', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m13:08:00.109925 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '2c742a70-28b3-4a84-bd77-38eed29b19a6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B26BBCB4D0>]}
+[0m13:08:00.188050 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '2c742a70-28b3-4a84-bd77-38eed29b19a6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B26D141210>]}
+[0m13:08:00.188050 [info ] [MainThread]: Registered adapter: snowflake=1.7.0
+[0m13:08:00.188050 [debug] [MainThread]: checksum: 248e8aba381ba2d577dce7ab50d2010c2aac45d2b27e6e6214cdd96d2d41fabc, vars: {}, profile: , target: , version: 1.7.4
+[0m13:08:00.355548 [debug] [MainThread]: Partial parsing enabled: 1 files deleted, 1 files added, 0 files changed.
+[0m13:08:00.355548 [debug] [MainThread]: Partial parsing: added file: batch2_elt_project://models\dimension\dim_products.sql
+[0m13:08:00.355548 [debug] [MainThread]: Partial parsing: deleted file: batch2_elt_project://models\fact\fact_products.sql
+[0m13:08:00.480987 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 2 unused configuration paths:
+- models.batch2_elt_project.stagung
+- models.batch2_elt_project.fact
+[0m13:08:00.480987 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '2c742a70-28b3-4a84-bd77-38eed29b19a6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B26D356110>]}
+[0m13:08:00.510872 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '2c742a70-28b3-4a84-bd77-38eed29b19a6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B26D22F650>]}
+[0m13:08:00.510872 [info ] [MainThread]: Found 2 models, 2 tests, 1 source, 0 exposures, 0 metrics, 430 macros, 0 groups, 0 semantic models
+[0m13:08:00.510872 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '2c742a70-28b3-4a84-bd77-38eed29b19a6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B26D4E9550>]}
+[0m13:08:00.510872 [info ] [MainThread]: 
+[0m13:08:00.510872 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m13:08:00.518073 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_dev'
+[0m13:08:00.527738 [debug] [ThreadPool]: Using snowflake connection "list_dev"
+[0m13:08:00.527738 [debug] [ThreadPool]: On list_dev: /* {"app": "dbt", "dbt_version": "1.7.4", "profile_name": "batch2_elt_project", "target_name": "dev", "connection_name": "list_dev"} */
+show terse schemas in database dev
+    limit 10000
+[0m13:08:00.527738 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m13:08:01.688312 [debug] [ThreadPool]: SQL status: SUCCESS 5 in 1.0 seconds
+[0m13:08:01.688312 [debug] [ThreadPool]: On list_dev: Close
+[0m13:08:02.579399 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_dev_silver'
+[0m13:08:02.579399 [debug] [ThreadPool]: Using snowflake connection "list_dev_silver"
+[0m13:08:02.579399 [debug] [ThreadPool]: On list_dev_silver: /* {"app": "dbt", "dbt_version": "1.7.4", "profile_name": "batch2_elt_project", "target_name": "dev", "connection_name": "list_dev_silver"} */
+show terse objects in dev.silver limit 10000
+[0m13:08:02.579399 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m13:08:03.470478 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 1.0 seconds
+[0m13:08:03.470478 [debug] [ThreadPool]: On list_dev_silver: Close
+[0m13:08:03.737039 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '2c742a70-28b3-4a84-bd77-38eed29b19a6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B26D2A45D0>]}
+[0m13:08:03.738039 [info ] [MainThread]: Concurrency: 3 threads (target='dev')
+[0m13:08:03.740263 [info ] [MainThread]: 
+[0m13:08:03.746029 [debug] [Thread-1 (]: Began running node model.batch2_elt_project.stg_products
+[0m13:08:03.747040 [info ] [Thread-1 (]: 1 of 2 START sql view model silver.stg_products ................................ [RUN]
+[0m13:08:03.748028 [debug] [Thread-1 (]: Acquiring new snowflake connection 'model.batch2_elt_project.stg_products'
+[0m13:08:03.749029 [debug] [Thread-1 (]: Began compiling node model.batch2_elt_project.stg_products
+[0m13:08:03.758064 [debug] [Thread-1 (]: Writing injected SQL for node "model.batch2_elt_project.stg_products"
+[0m13:08:03.759034 [debug] [Thread-1 (]: Timing info for model.batch2_elt_project.stg_products (compile): 13:08:03.750040 => 13:08:03.758064
+[0m13:08:03.759034 [debug] [Thread-1 (]: Began executing node model.batch2_elt_project.stg_products
+[0m13:08:03.791784 [debug] [Thread-1 (]: Writing runtime sql for node "model.batch2_elt_project.stg_products"
+[0m13:08:03.794772 [debug] [Thread-1 (]: Using snowflake connection "model.batch2_elt_project.stg_products"
+[0m13:08:03.795787 [debug] [Thread-1 (]: On model.batch2_elt_project.stg_products: /* {"app": "dbt", "dbt_version": "1.7.4", "profile_name": "batch2_elt_project", "target_name": "dev", "node_id": "model.batch2_elt_project.stg_products"} */
+create or replace   view dev.silver.stg_products
+  
+   as (
+    select  product_id ,
+ product_category_name,
+ product_name_length,
+ cast(product_description_length as int)as product_description_length,
+ cast(product_photos_qty as int)as product_photos_qty,
+ cast(product_weight_g as int)as product_weight_g,
+ cast(product_length_cm as int)as product_length_cm,
+ cast(product_height_cm as int)as product_height_cm,
+ cast(product_width_cm as int)as product_width_cm,
+ INSERTED_AT as inserted_at
+ from
+  DEV.BRONZE.products
+  );
+[0m13:08:03.796781 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m13:08:04.958286 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 1.0 seconds
+[0m13:08:04.973643 [debug] [Thread-1 (]: Timing info for model.batch2_elt_project.stg_products (execute): 13:08:03.760028 => 13:08:04.973643
+[0m13:08:04.973643 [debug] [Thread-1 (]: On model.batch2_elt_project.stg_products: Close
+[0m13:08:05.192651 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '2c742a70-28b3-4a84-bd77-38eed29b19a6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B26D86E150>]}
+[0m13:08:05.192651 [info ] [Thread-1 (]: 1 of 2 OK created sql view model silver.stg_products ........................... [[32mSUCCESS 1[0m in 1.44s]
+[0m13:08:05.192651 [debug] [Thread-1 (]: Finished running node model.batch2_elt_project.stg_products
+[0m13:08:05.192651 [debug] [Thread-3 (]: Began running node model.batch2_elt_project.dim_products
+[0m13:08:05.192651 [info ] [Thread-3 (]: 2 of 2 START sql table model silver.dim_products ............................... [RUN]
+[0m13:08:05.192651 [debug] [Thread-3 (]: Acquiring new snowflake connection 'model.batch2_elt_project.dim_products'
+[0m13:08:05.192651 [debug] [Thread-3 (]: Began compiling node model.batch2_elt_project.dim_products
+[0m13:08:05.208023 [debug] [Thread-3 (]: Writing injected SQL for node "model.batch2_elt_project.dim_products"
+[0m13:08:05.223646 [debug] [Thread-3 (]: Timing info for model.batch2_elt_project.dim_products (compile): 13:08:05.192651 => 13:08:05.223646
+[0m13:08:05.223646 [debug] [Thread-3 (]: Began executing node model.batch2_elt_project.dim_products
+[0m13:08:05.254873 [debug] [Thread-3 (]: Writing runtime sql for node "model.batch2_elt_project.dim_products"
+[0m13:08:05.254873 [debug] [Thread-3 (]: Using snowflake connection "model.batch2_elt_project.dim_products"
+[0m13:08:05.254873 [debug] [Thread-3 (]: On model.batch2_elt_project.dim_products: /* {"app": "dbt", "dbt_version": "1.7.4", "profile_name": "batch2_elt_project", "target_name": "dev", "node_id": "model.batch2_elt_project.dim_products"} */
+create or replace transient table dev.silver.dim_products
+         as
+        (with stg_product_data as
+(
+    select * from dev.silver.stg_products
+)
+
+select  
+ REPLACE(product_id,'"', '') AS product_id ,
+ IFNULL(product_category_name, 'NO NAME ASSIGNED') as product_category_name,
+ IFNULL(product_name_length, 0) as product_name_length,
+ IFNULL(product_description_length, 0)as product_description_length,
+ IFNULL(product_photos_qty, 0) as product_photos_qty,
+ IFNULL(product_weight_g, 0) as product_weight_g ,
+ IFNULL(product_length_cm, 0) as product_length_cm,
+ IFNULL(product_height_cm, 0) as product_height_cm,
+ IFNULL(product_width_cm, 0) as product_width_cm,
+ INSERTED_AT as inserted_at
+ 
+from stg_product_data
+        );
+[0m13:08:05.254873 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m13:08:07.145776 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 2.0 seconds
+[0m13:08:07.161201 [debug] [Thread-3 (]: Timing info for model.batch2_elt_project.dim_products (execute): 13:08:05.223646 => 13:08:07.161201
+[0m13:08:07.161201 [debug] [Thread-3 (]: On model.batch2_elt_project.dim_products: Close
+[0m13:08:07.364533 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '2c742a70-28b3-4a84-bd77-38eed29b19a6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B26D5D1710>]}
+[0m13:08:07.364533 [info ] [Thread-3 (]: 2 of 2 OK created sql table model silver.dim_products .......................... [[32mSUCCESS 1[0m in 2.17s]
+[0m13:08:07.364533 [debug] [Thread-3 (]: Finished running node model.batch2_elt_project.dim_products
+[0m13:08:07.364533 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m13:08:07.364533 [debug] [MainThread]: Connection 'list_dev' was properly closed.
+[0m13:08:07.364533 [debug] [MainThread]: Connection 'list_dev_silver' was properly closed.
+[0m13:08:07.364533 [debug] [MainThread]: Connection 'model.batch2_elt_project.stg_products' was properly closed.
+[0m13:08:07.364533 [debug] [MainThread]: Connection 'model.batch2_elt_project.dim_products' was properly closed.
+[0m13:08:07.364533 [info ] [MainThread]: 
+[0m13:08:07.379880 [info ] [MainThread]: Finished running 1 view model, 1 table model in 0 hours 0 minutes and 6.85 seconds (6.85s).
+[0m13:08:07.379880 [debug] [MainThread]: Command end result
+[0m13:08:07.379880 [info ] [MainThread]: 
+[0m13:08:07.379880 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m13:08:07.379880 [info ] [MainThread]: 
+[0m13:08:07.379880 [info ] [MainThread]: Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
+[0m13:08:07.395504 [debug] [MainThread]: Command `dbt run` succeeded at 13:08:07.395504 after 8.85 seconds
+[0m13:08:07.395504 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B254413E90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B254411E90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B24D0BDB50>]}
+[0m13:08:07.395504 [debug] [MainThread]: Flushing usage events
