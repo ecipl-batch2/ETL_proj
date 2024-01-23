@@ -1,0 +1,7 @@
+sources:
+  - name: landing
+    database : DEV
+    schema : BRONZE
+    tables:
+        - name: products
+          identifier: products
