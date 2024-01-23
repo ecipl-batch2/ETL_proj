@@ -1,0 +1,7 @@
+sources:
+  - name: bronze
+    database : dev
+    schema : bronze
+    tables:
+        - name: products
+          

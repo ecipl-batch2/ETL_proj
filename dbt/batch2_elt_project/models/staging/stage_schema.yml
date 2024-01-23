@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: stg_products
+    description: "Tests for Products Model"
+    columns:
+      - name: product_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+  
