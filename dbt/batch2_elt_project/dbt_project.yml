@@ -37,5 +37,5 @@ models:
       +materialized: table
     fact:
       +materialized: view  
-    stagung:
+    staging:
       +materialized: view
