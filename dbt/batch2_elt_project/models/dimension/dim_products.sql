@@ -15,4 +15,5 @@ select
     IFNULL(product_height_cm, 0) as product_height_cm,
     IFNULL(product_width_cm, 0) as product_width_cm,
     INSERTED_AT as inserted_at
-from stg_product_data
+from 
+    stg_product_data
