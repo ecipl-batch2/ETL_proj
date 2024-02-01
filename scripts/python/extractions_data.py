@@ -7,8 +7,9 @@ import yaml
 from datetime import datetime
 from dotenv import load_dotenv
 
-# Load environment variables from .env file
-load_dotenv()                                  # .env file is stored in .gitignore file
+## Load environment variables from .env file which is stored in in the root directory of  project.
+
+load_dotenv()                                  
 
 class SQLServerData:
     def __init__(self):
