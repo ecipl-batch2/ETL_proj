@@ -1,0 +1,17 @@
+# config.yaml
+extraction:
+  batch_size: 1000
+  tables:
+    - customers
+    - geolocation
+    - order_items
+    - order_payments
+    - order_reviews
+    - orders
+    - product_category_name_translation
+    - products
+    - sellers
+   
+
+
+
