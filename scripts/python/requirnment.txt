@@ -1,0 +1,8 @@
+
+boto3             1.33.11
+pandas            2.0.1
+pip               23.3.2
+pyodbc            4.0.39
+python-dotenv     1.0.1
+PyYAML            6.0.1
+SQLAlchemy        2.0.25
