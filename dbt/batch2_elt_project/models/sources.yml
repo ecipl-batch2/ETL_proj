@@ -1,7 +1,16 @@
 sources:
   - name: bronze
-    database : dev
+    database : sandbox
     schema : bronze
     tables:
         - name: products
+        - name: orders
+        - name: customers
+        - name: order_items
+        - name: order_payments
+        - name: order_reviews
+        - name: geolocation
+        - name: sellers
+        - name: product_category_name_translation
+        
           

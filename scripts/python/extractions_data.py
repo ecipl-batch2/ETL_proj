@@ -1,25 +1,25 @@
+
 import pyodbc
 import boto3
 import pandas as pd
 import os
 import yaml
 from datetime import datetime
+from dotenv import load_dotenv
+
+## Load environment variables from .env file which is stored in in the root directory of  project.
+
+load_dotenv()                                  
 
 class SQLServerData:
-    def __init__(self, credentials, config_path):
-        self.config1 = self.read_config(config_path)
-        self.config = self.read_config(credentials)
+    def __init__(self):
         self.connection = self.get_sql_connection()
 
-    def read_config(self, file_path):
-        with open(file_path, 'r') as file:
-            return yaml.safe_load(file)
-
     def get_sql_connection(self):
-        username = self.config['source']['username']
-        password = self.config['source']['password']
-        server = self.config['source']['server']
-        database = self.config['source']['database']
+        username = os.getenv('SQL_USERNAME')
+        password = os.getenv('SQL_PASSWORD')
+        server = os.getenv('SQL_SERVER')
+        database = os.getenv('SQL_DATABASE')
 
         connection_string = f'DRIVER={{SQL Server}};SERVER={server};DATABASE={database};UID={username};PWD={password};'
         return pyodbc.connect(connection_string)
@@ -34,22 +34,20 @@ class SQLServerData:
         self.connection.close()
 
 class S3Uploader:
-    def __init__(self, credentials):
-        self.config = self.read_config(credentials)
-        self.credentials = self.load_credentials()
+    def __init__(self, config_path):
+        self.s3_config = self.read_config(config_path)
 
-    def read_config(self, file_path):
-        with open(file_path, 'r') as file:
+    def read_config(self, config_path):
+        with open(config_path, 'r') as file:
             return yaml.safe_load(file)
-        
+
     def load_credentials(self):
-        # Extract AWS credentials from the loaded credentials
-        aws_access_key_id = self.config['keys']['access_key_id']
-        aws_secret_access_key = self.config['keys']['secret_access_key']
-        return aws_access_key_id, aws_secret_access_key
-    
+        return os.getenv('AWS_ACCESS_KEY_ID'), os.getenv('AWS_SECRET_ACCESS_KEY')
+
     def delete_old_files(self, bucket_name, prefix):
-        s3_client = boto3.client('s3', aws_access_key_id=self.credentials[0], aws_secret_access_key=self.credentials[1])
+        aws_access_key_id, aws_secret_access_key = self.load_credentials()
+
+        s3_client = boto3.client('s3', aws_access_key_id=aws_access_key_id, aws_secret_access_key=aws_secret_access_key)
 
         # List all objects in the specified bucket with the given prefix
         response = s3_client.list_objects(Bucket=bucket_name, Prefix=prefix)
@@ -65,7 +63,7 @@ class S3Uploader:
         aws_access_key_id, aws_secret_access_key = self.load_credentials()
 
         s3_client = boto3.client('s3', aws_access_key_id=aws_access_key_id, aws_secret_access_key=aws_secret_access_key)
-        
+
         num_batches = len(df) // batch_size + 1
 
         for i in range(num_batches):
@@ -79,26 +77,22 @@ class S3Uploader:
             print(f'Uploaded data for {table} to {bucket_name}/{s3_key}')
 
 def main():
-    # Paths to configuration and key information files
-    config_path = 'C:\\Users\\durge\\GIT project\\de-batch-project\\scripts\\python\\config\\keydata\\config.yaml'
-    credentials = 'C:\\Users\\durge\\GIT project\\de-batch-project\\scripts\\python\\config\\keydata\\key.yaml'
-    
-    # S3 Bucket details 
-    bucket_name = 'eltproject'
-
     # Create instances of the classes
-    sql_fetcher = SQLServerData(credentials, config_path)
-    s3_uploader = S3Uploader(credentials)
+    sql_fetcher = SQLServerData()
+    config_path = os.getenv('CONFIG_PATH')
+    s3_uploader = S3Uploader(config_path)
 
-    batch_size = sql_fetcher.config1['extraction']['batch_size']
+    bucket_name = os.getenv('BUCKET_NAME')
 
-    for table in sql_fetcher.config1['extraction']['tables']:
+    batch_size = s3_uploader.s3_config['extraction']['batch_size']
+
+    for table in s3_uploader.s3_config['extraction']['tables']:
         print(f"Fetching data for table: {table}")
         df = sql_fetcher.fetch_data(table)
         print(f"Uploading data for table: {table}")
         s3_uploader.delete_old_files(bucket_name, f"{table}")
         s3_uploader.upload_dataframe_to_s3(df, table, bucket_name, batch_size)
-            
+
     # Close the SQL Server connection
     sql_fetcher.close_connection()
 

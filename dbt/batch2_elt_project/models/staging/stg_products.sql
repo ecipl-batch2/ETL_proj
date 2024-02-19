@@ -1,13 +1,13 @@
-
- select  product_id ,
- product_category_name,
- product_name_length,
- cast(product_description_length as int)as product_description_length,
- cast(product_photos_qty as int)as product_photos_qty,
- cast(product_weight_g as int)as product_weight_g,
- cast(product_length_cm as int)as product_length_cm,
- cast(product_height_cm as int)as product_height_cm,
- cast(product_width_cm as int)as product_width_cm,
- INSERTED_AT as inserted_at
- from
-  {{    source ('bronze','products')   }} 
+SELECT  
+    PRODUCT_ID ,
+    PRODUCT_CATEGORY_NAME,
+    PRODUCT_NAME_LENGTH,
+    CAST(PRODUCT_DESCRIPTION_LENGTH AS INT)AS PRODUCT_DESCRIPTION_LENGTH,
+    CAST(PRODUCT_PHOTOS_QTY AS INT)AS PRODUCT_PHOTOS_QTY,
+    CAST(PRODUCT_WEIGHT_G AS INT)AS PRODUCT_WEIGHT_G,
+    CAST(PRODUCT_LENGTH_CM AS INT)AS PRODUCT_LENGTH_CM,
+    CAST(PRODUCT_HEIGHT_CM AS INT)AS PRODUCT_HEIGHT_CM,
+    CAST(PRODUCT_WIDTH_CM AS INT)AS PRODUCT_WIDTH_CM,
+    INSERTED_AT AS INSERTED_AT
+FROM
+    {{    source ('bronze','products')   }} 

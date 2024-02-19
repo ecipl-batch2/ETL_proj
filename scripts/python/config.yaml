@@ -1,5 +1,6 @@
 # config.yaml
 extraction:
+
   tables:
     - name: "product_category_name_translation"
       load_type: "incremental"
@@ -149,4 +150,19 @@ extraction:
     
     
     
+  batch_size: 1000
+  tables:
+    - customers
+    - geolocation
+    - order_items
+    - order_payments
+    - order_reviews
+    - orders
+    - product_category_name_translation
+    - products
+    - sellers
+   
+
+
+
 
