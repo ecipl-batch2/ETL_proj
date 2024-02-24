@@ -1,0 +1,148 @@
+# config.yaml
+extraction:
+
+  tables:
+    - name: "product_category_name_translation"
+      load_type: "incremental"
+      query: "SELECT 
+	                          C.[product_category_name],
+                            C.[product_category_name_english],
+	                          C.[__$operation] AS OPERATION,
+	                          T.[tran_end_time]  AS TRANSACTION_TIME
+                            FROM [cdc].[dbo_product_category_name_translation_CT] C
+                            INNER JOIN [CDC].[lsn_time_mapping]  T ON C.__$START_LSN = T.START_LSN"
+
+      batch_size: 100
+      initial_load: true
+
+    - name: "products"
+      load_type: "incremental"
+      query: "SELECT 
+                            C.[product_id],
+                           C.[product_category_name],
+                           C.[product_name_lenght],
+                           C.[product_description_lenght],
+                           C.[product_photos_qty],
+                           C.[product_weight_g],
+                           C.[product_length_cm],
+                           C.[product_height_cm],
+                           C.[product_width_cm],
+	                         C.[__$operation] AS OPERATION,
+	                         T.[tran_end_time]  AS TRANSACTION_TIME
+                          FROM [cdc].[dbo_products_CT] C
+                           INNER JOIN [CDC].[lsn_time_mapping]  T ON C.__$START_LSN = T.START_LSN"
+      batch_size: 5000
+      initial_load: true
+
+    - name: "sellers"
+      load_type: "incremental"
+      query: "SELECT 
+                           C.[seller_id],
+                           C.[seller_zip_code_prefix],
+                           C.[seller_city],
+                           C.[seller_state],
+	                         C.[__$operation] AS OPERATION,
+	                         T.[tran_end_time]  AS TRANSACTION_TIME
+                           FROM [cdc].[dbo_sellers_CT] C
+                           INNER JOIN [CDC].[lsn_time_mapping]  T ON C.__$START_LSN = T.START_LSN"
+      batch_size: 1000
+      initial_load: true
+
+    - name: "customers"
+      load_type: "incremental"
+      query: SELECT 
+                            C.[customer_id],
+                            C.[customer_unique_id],
+                            C.[customer_zip_code_prefix],
+                            C.[customer_city],
+                            C.[customer_state],
+                            C.[__$operation] AS OPERATION,
+                            T.[tran_end_time]  AS TRANSACTION_TIME
+                             FROM [cdc].[dbo_customers_CT] C
+                             INNER JOIN [CDC].[lsn_time_mapping]  T ON C.__$START_LSN = T.START_LSN
+                            
+      batch_size: 10000
+      initial_load: false
+
+    - name: "geolocation"
+      load_type: "incremental"
+      query: SELECT 
+                                C.[geolocation_zip_code_prefix],
+                                C.[geolocation_lat],
+                                C.[geolocation_lng],
+                                C.[geolocation_city],
+                                C.[geolocation_state],
+                                C.[__$operation] AS OPERATION,
+                                T.[tran_end_time]  AS TRANSACTION_TIME
+                        FROM [cdc].[dbo_geolocation_CT] C
+                        INNER JOIN [CDC].[lsn_time_mapping]  T ON C.__$START_LSN = T.START_LSN
+      batch_size: 50000
+      initial_load: false
+
+    - name: "order_items"
+      load_type: "incremental"
+      query: SELECT 
+                            C.[order_id],
+                            C.[order_item_id],
+                            C.[product_id],
+                            C.[seller_id],
+                            C.[shipping_limit_date],
+                            C.[price],
+                            C.[freight_value],
+                            C.[__$operation] AS OPERATION,
+                            T.[tran_end_time]  AS TRANSACTION_TIME
+                        FROM [cdc].[dbo_order_items_CT] C
+                        INNER JOIN [CDC].[lsn_time_mapping]  T ON C.__$START_LSN = T.START_LSN
+      batch_size: 10000
+      initial_load: false
+
+    - name: "order_payments"
+      load_type: "incremental"
+      query: SELECT 
+                      C.[order_id],
+                      C.[payment_sequential],
+                      C.[payment_type],
+                      C.[payment_installments],
+                      C.[payment_value],
+                      C.[__$operation] AS OPERATION,
+                      T.[tran_end_time]  AS TRANSACTION_TIME
+                            FROM [cdc].[dbo_order_payments_CT] C
+                              INNER JOIN [CDC].[lsn_time_mapping]  T ON C.__$START_LSN = T.START_LSN
+
+      batch_size: 10000
+      initial_load: false
+
+    - name: "order_reviews"
+      load_type: "incremental"
+      query:  SELECT 
+                              C.[review_id],
+                                C.[order_id],
+                                C.[review_score],
+                                C.[review_comment_title],
+                                C.[review_comment_message],
+                                C.[review_creation_date],
+                                C.[review_answer_timestamp],
+                              C.[__$operation] AS OPERATION,
+                              T.[tran_end_time]  AS TRANSACTION_TIME
+                          FROM [cdc].[dbo_order_reviews_CT] C
+                            INNER JOIN [CDC].[lsn_time_mapping]  T ON C.__$START_LSN = T.START_LSN
+      batch_size: 10000
+      initial_load: false
+
+    - name: "orders"
+      load_type: "incremental"
+      query: SELECT  
+                                C.[order_id],
+                                C.[customer_id],
+                                C.[order_status],
+                                C.[order_purchase_timestamp],
+                                C.[order_approved_at],
+                                C.[order_delivered_carrier_date],
+                                C.[order_delivered_customer_date],
+                                C.[order_estimated_delivery_date],
+                              C.[__$operation] AS OPERATION,
+                              T.[tran_end_time]  AS TRANSACTION_TIME
+                              FROM [cdc].[dbo_orders_CT] C
+                              INNER JOIN [CDC].[lsn_time_mapping]  T ON C.__$START_LSN = T.START_LSN
+      batch_size: 10000
+      initial_load: false
