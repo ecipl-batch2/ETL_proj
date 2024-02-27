@@ -1,6 +1,6 @@
 sources:
   - name: bronze
-    database : sandbox
+    database : dev
     schema : bronze
     tables:
         - name: products

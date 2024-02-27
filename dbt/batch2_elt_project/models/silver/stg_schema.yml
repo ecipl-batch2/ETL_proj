@@ -1,0 +1,6 @@
+models:
+  - name: stg_orders
+    description: "Tests for Orders Model"
+    columns:
+      - name: order_id
+        description: "The primary key for this table"

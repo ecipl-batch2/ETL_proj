@@ -31,13 +31,8 @@
 
   models:
     batch2_elt_project:
-      # Config indicated by + and applies to all files under models/example/
-      dimension:
-        +materialized: table
       gold:
         +materialized: table
         +schema: gold
-      fact:
-        +materialized: view  
-      staging:
-        +materialized: view
+      silver:
+        +materialized: table  
