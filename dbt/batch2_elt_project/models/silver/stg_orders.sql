@@ -1,7 +1,8 @@
 {{
     config(
         materialized='incremental',
-        unique_key='order_id'
+        unique_key='order_id',
+        incremental_strategy='merge'
     )
 }}
 
@@ -46,10 +47,11 @@ SELECT DISTINCT
     ORDER_APPROVED_AT,
     ORDER_DELIVERED_CARRIER_DATE,
     ORDER_DELIVERED_CUSTOMER_DATE,
-    ORDER_ESTIMATED_DELIVERY_DATE
+    ORDER_ESTIMATED_DELIVERY_DATE,
+    OPERATION,
+    TRANSACTION_TIME
 FROM 
     orders_clean_data
 {% if is_incremental() %}
   where TRANSACTION_TIME > (select max(TRANSACTION_TIME) from {{ this }})
 {% endif %}
-
