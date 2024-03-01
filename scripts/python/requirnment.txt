@@ -4,3 +4,4 @@ pyodbc==4.0.39
 python-dotenv==1.0.1
 PyYAML==6.0.1
 SQLAlchemy==2.0.25
+snowflake-connector-python==3.7.0
