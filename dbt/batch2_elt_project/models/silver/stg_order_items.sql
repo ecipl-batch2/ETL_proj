@@ -6,7 +6,7 @@
     )
 }}
 
-with orders_data as (
+with orders_items_data as (
     SELECT
         ORDER_ID,
         CAST(ORDER_ITEM_ID AS INT) as ORDER_ITEM_ID,
@@ -16,10 +16,20 @@ with orders_data as (
         CAST(PRICE AS FLOAT) as PRICE,
         CAST(FREIGHT_VALUE AS FLOAT) as FREIGHT_VALUE,
         CAST(OPERATION AS INT) as OPERATION,
-        CAST(TRANSACTION_TIME as TIMESTAMP) as TRANSACTION_TIME
+        CAST(TRANSACTION_TIME as TIMESTAMP) as TRANSACTION_TIME,
+        ROW_NUMBER() OVER(PARTITION BY ORDER_ID ORDER BY TRANSACTION_TIME DESC)AS rn
     FROM 
         {{ source('bronze', 'order_items') }}
+),
+
+latest_orders_items_data AS (
+    SELECT 
+        *
+    FROM 
+        orders_items_data
+    WHERE rn = 1
 )
+
 
 select 
     ORDER_ID,
@@ -31,7 +41,7 @@ select
     FREIGHT_VALUE,
     OPERATION,
     TRANSACTION_TIME
-from orders_data
+from latest_orders_items_data
 
 {% if is_incremental() %}
   where TRANSACTION_TIME > (select max(TRANSACTION_TIME) from {{ this }})
