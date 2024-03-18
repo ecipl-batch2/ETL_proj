@@ -1,11 +1,11 @@
 {{
     config(
         materialized='incremental',
-        unique_key='CUSTOMER_ID',
+        unique_key='customer_id',
         incremental_strategy='merge'
     )
 }}
-WITH CUSTOMERS_DATA AS (
+WITH customers_data AS (
     SELECT  
         CUSTOMER_ID,
         CUSTOMER_UNIQUE_ID,
@@ -18,7 +18,7 @@ WITH CUSTOMERS_DATA AS (
         {{ source('bronze', 'customers') }} 
 ),
 
-CUSTOMERS_CLEAN_DATA AS (
+customers_clean_data AS (
     SELECT 
     CUSTOMER_ID,
     CUSTOMER_UNIQUE_ID,
@@ -28,14 +28,14 @@ CUSTOMERS_CLEAN_DATA AS (
     OPERATION,
     TRANSACTION_TIME,
     ROW_NUMBER() OVER (PARTITION BY CUSTOMER_ID ORDER BY TRANSACTION_TIME DESC) AS RN
-    FROM CUSTOMERS_DATA
+    FROM customers_data
 ),
 
-LATEST_CUSTOMERS_DATA AS (
+latest_customers_data AS (
     SELECT 
         *
     FROM 
-        CUSTOMERS_CLEAN_DATA
+        customers_clean_data
     WHERE RN = 1
 )
 
@@ -48,9 +48,9 @@ SELECT DISTINCT
     OPERATION,
     TRANSACTION_TIME
 FROM 
-    LATEST_CUSTOMERS_DATA
+    latest_customers_data
 
 {% if is_incremental() %}
-  WHERE TRANSACTION_TIME > (SELECT MAX(TRANSACTION_TIME) FROM {{ THIS }})
+  WHERE TRANSACTION_TIME > (SELECT MAX(TRANSACTION_TIME) FROM {{ this }})
 {% endif %}
 
